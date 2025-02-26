@@ -7,8 +7,10 @@ interface AuthContextType {
   user: User | null;
   loading: boolean;
   signIn: (email: string, password: string) => Promise<void>;
-  signUp: (email: string, password: string) => Promise<void>;
+  signUp: (email: string, password: string, role: 'HABITANT' | 'ASSOCIATION') => Promise<void>;
   signOut: () => void;
+  forgotPassword: (email: string) => Promise<void>;
+  resetPassword: (email: string, password: string) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
