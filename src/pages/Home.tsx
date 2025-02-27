@@ -28,7 +28,7 @@ export default function Home() {
                 await signIn(data.email, data.password);
                 toast.success('Connexion réussie');
             } else {
-                await signUp(data.email, data.password);
+                await signUp(data.email, data.password, data.role);
                 toast.success('Inscription réussie');
             }
         } catch (error) {
@@ -37,7 +37,7 @@ export default function Home() {
     };
 
     return (
-        <>
+
             <div
                 className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center p-4">
                 <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-xl shadow-lg">
@@ -73,7 +73,7 @@ export default function Home() {
                                 </label>
                                 <input
                                     id="password"
-                                    type="paasword"
+                                    type="password"
                                     {...register('password')}
                                     className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                                 />
@@ -126,6 +126,5 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-        </>
     )
 }
