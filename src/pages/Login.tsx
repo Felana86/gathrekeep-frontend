@@ -7,8 +7,8 @@ import toast from 'react-hot-toast';
 import { zodResolver } from '@hookform/resolvers/zod'
 
 const loginSchema = z.object({
-    email: z.string().email('Email is required'),
-    password: z.string().min(8, 'Password is required')
+    email: z.string().email("L'email est recquis"),
+    password: z.string().min(8, 'Le mot de passe est recquis')
 })
 
 type LoginFormData = z.infer<typeof loginSchema>
@@ -31,9 +31,7 @@ export default function Login() {
         } catch (error) {
             toast.error('Echec de la connexion')
         } finally {
-            {
                 setIsLoading(false);
-            }
         }
     }
 
@@ -80,7 +78,7 @@ export default function Login() {
 
 
                     <div className="text-sm">
-                        <Link to="/forgt-password" className="font-medium text-indigo-600 hover:text-indigo-500">
+                        <Link to="/forgot-password" className="font-medium text-indigo-600 hover:text-indigo-500">
                             Mot de passe oublié ?
                         </Link>
                     </div>
